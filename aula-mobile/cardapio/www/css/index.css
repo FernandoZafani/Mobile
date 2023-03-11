@@ -1,5 +1,22 @@
-
-* {
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+ * {
     -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 }
 
@@ -22,24 +39,74 @@ body {
 
 /* Portrait layout (default) */
 .app {
-    background:url(../img/pizza.png) no-repeat center top; /* 170px x 200px */
-    position:absolute;             /* position in the center of the screen */
-    left:50%;
-    top:50%;
-    height:50px;                   /* text area height */
-    width:225px;                   /* text area width */
+    display: flex;
+    flex-direction: column;
+    width:100%
+}
+
+.titulo {
+    font-size:24px;
+    font-weight: bold;
+    margin:0px;
+    padding-top:10px;
+    padding-bottom:10px;
     text-align:center;
-    padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
-    margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
-                                   /* offset horizontal: half of text area width */
+    width: 100%;
+}
+
+.imagem-container {
+    display: flex;
+    align-items: center;
+}
+
+.imagem-lateral {
+    flex: 1;
+}
+
+.imagem {
+    flex: 3;
+    border: solid;
+    height: 200px;
+    background-color: #cccccc;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.seta {
+    font-size: 34px;
+    text-align: center;
+}
+
+.form-linha {
+    display: flex;
+    align-items: center;
+    margin-top: 10%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.form-linha-esq {
+    flex: 1;
+}
+
+.form-linha-dir {
+    flex: 5;
+}
+
+.enviar {
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 /* Landscape layout (with min-width) */
 @media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
     .app {
-        display: flex;
-        flex-direction: column;
-        width:100%
+        background-position:left center;
+        padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
+        margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
+                                      /* offset horizontal: half of image width and text area width */
     }
 }
 
@@ -50,6 +117,10 @@ h1 {
     overflow:visible;
     padding:0px;
     text-align:center;
+}
+
+.estilo {
+    padding: 30px;
 }
 
 .event {
@@ -84,52 +155,9 @@ h1 {
     -webkit-animation:fade 3000ms infinite;
 }
 
-.titulo {
-    font-size:24px;
-    font-weight: bold;
-    margin:0px;
-    padding-top:10px;
-    padding-bottom:10px;
-    text-align:center;
-    width: 100%;
-}
+
 @media screen and (prefers-color-scheme: dark) {
     body {
         background-image:linear-gradient(to bottom, #585858 0%, #1B1B1B 51%);
     }
-}
-.imagem-container {
-    display: flex;
-    align-items: center;
-}
-
-.imagem-lateral {
-    flex: 1;
-}
-
-.imagem {
-    flex: 3;
-    border: solid;
-    height: 200px;
-}
-
-.seta {
-    font-size: 34px;
-    text-align: center;
-}
-
-.form-linha {
-    display: flex;
-    align-items: center;
-    margin-top: 10%;
-    margin-left: 5%;
-    margin-right: 5%;
-}
-
-.form-linha-esq {
-    flex: 1;
-}
-
-.form-linha-dir {
-    flex: 5;
 }
