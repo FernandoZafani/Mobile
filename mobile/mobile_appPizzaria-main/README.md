@@ -1,0 +1,1 @@
+# Trabalho mobile 2023, cordova
